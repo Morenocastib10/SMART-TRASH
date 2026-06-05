@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto | Smart Bin System</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="img/logo s.png" alt="Logo SMART TRASH">
+        </div>
+
+        <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="proyecto.html" class="activo">Proyecto</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="contactos.html">Contactos</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- CONTENIDO -->
+    <section class="bienvenida">
+
+        <h2>Nuestro Proyecto</h2>
+
+        <div class="contenido-bienvenida">
+
+            <p>
+                El propósito del proyecto SMART TRAS es desarrollar una solución tecnológica enfocada en la
+                automatización del manejo de residuos mediante una caneca inteligente que mejora la higiene y la
+                comodidad del usuario.
+            </p>
+
+            <p>
+                Este sistema utiliza sensores de proximidad para detectar la presencia de una persona y activar la
+                apertura automática de la tapa, evitando el contacto directo con la basura y reduciendo la propagación
+                de bacterias.
+            </p>
+
+            <p>
+                El proyecto está basado en el uso de un Arduino UNO, un sensor ultrasónico HC-SR04 y un servomotor,
+                los cuales trabajan en conjunto para lograr un funcionamiento eficiente y en tiempo real.
+            </p>
+
+            <p>
+                Además, se plantea como mejora futura la implementación de una aplicación móvil para el control remoto
+                del sistema y la optimización del proceso de vaciado del contenedor.
+            </p>
+
+            <p>
+                <strong class="slogan">SMART TRASH: Menos contacto, más salud.</strong>
+            </p>
+
+        </div>
+
+        <!-- 🖼️ GALERÍA -->
+        <div class="galeria">
+
+            <div class="fila">
+                <img src="img/proyecto 1 s.jpeg" alt="caneca 1" onclick="abrir(this)">
+                <img src="img/proyecto 2 s.jpeg" alt="caneca 2" onclick="abrir(this)">
+                <img src="img/proyecto 3 s.jpeg" alt="caneca 3" onclick="abrir(this)">
+            </div>
+
+            <div class="fila">
+                <img src="img/proyecto 4 s.jpeg" alt="caneca 4" onclick="abrir(this)">
+                <img src="img/proyecto 5 s.jpeg" alt="caneca 5" onclick="abrir(this)">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- MODAL -->
+<div id="modal" class="modal">
+
+        <span class="cerrar" onclick="cerrar()">✖</span>
+
+        <span class="flecha izquierda" onclick="anterior()">&#10094;</span>
+
+        <img id="imgGrande">
+
+        <span class="flecha derecha" onclick="siguiente()">&#10095;</span>
+
+    </div>
+
+    <script>
+        const imagenes = Array.from(document.querySelectorAll(".fila img"));
+        let indiceActual = 0;
+
+        function abrir(img){
+            document.getElementById("modal").style.display = "flex";
+            document.getElementById("imgGrande").src = img.src;
+            indiceActual = imagenes.indexOf(img);
+        }
+
+        function cerrar(){
+            document.getElementById("modal").style.display = "none";
+        }
+
+        function anterior(){
+            indiceActual--;
+            if(indiceActual < 0){
+                indiceActual = imagenes.length - 1;
+            }
+            document.getElementById("imgGrande").src = imagenes[indiceActual].src;
+        }
+
+        function siguiente(){
+            indiceActual++;
+            if(indiceActual >= imagenes.length){
+                indiceActual = 0;
+            }
+            document.getElementById("imgGrande").src = imagenes[indiceActual].src;
+        }
+    </script>
+
+</body>
+</html>
