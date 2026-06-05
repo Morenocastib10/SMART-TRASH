@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART BIN SYSTEM</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="img/logo s.png" alt="Logo SMART TRASH">
+        </div>
+
+        <ul class="menu">
+            <li><a href="index.html" class="activo">Inicio</a></li>
+            <li><a href="proyecto.html">Proyecto</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="contactos.html">Contactos</a></li>
+        </ul>
+
+    </nav>
+
+    <section class="bienvenida">
+
+        <h2>Bienvenido a SMART TRASH</h2>
+
+        <div class="contenido-bienvenida">
+
+            <p>
+                SMART TARSH es una propuesta de empresa enfocada en el desarrollo de soluciones tecnológicas
+                para la gestión inteligente de residuos, con el objetivo de automatizar y mejorar la forma en que
+                las personas interactúan con la basura en su vida diaria.
+            </p>
+
+            <p>
+                Nuestro producto principal es una caneca de basura inteligente que funciona mediante sensores de
+                proximidad, permitiendo la apertura automática de la tapa sin contacto físico. Esto mejora la
+                higiene, reduce la contaminación cruzada y facilita el uso en hogares, colegios y espacios públicos.
+            </p>
+
+            <p>
+                El sistema está basado en un Arduino UNO, un sensor ultrasónico HC-SR04 y un servomotor, los cuales
+                trabajan en conjunto para detectar la presencia de una persona y accionar la apertura automática
+                de la tapa en tiempo real.
+            </p>
+
+            <p>
+                Como mejora futura, el sistema puede incluir una aplicación móvil para control remoto, monitoreo
+                del estado del contenedor y un sistema de apertura adicional para facilitar el vaciado del mismo.
+            </p>
+
+            <p>
+                La maqueta utilizada tiene como propósito demostrar el funcionamiento del sistema en un entorno
+                controlado, mientras que el producto real está diseñado para ser implementado en diferentes tipos
+                de entornos como hogares, instituciones educativas y espacios comerciales.
+            </p>
+
+            <p>
+                En SMART TRASH buscamos promover la innovación en el manejo de residuos, aportando a la
+                sostenibilidad y mejorando la experiencia del usuario mediante tecnología accesible.
+            </p>
+
+            <p>
+                <strong class="slogan">SMART TRASH: Menos contacto, más salud.</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="hero">
+
+        <div class="hero-texto">
+
+            <h1>Menos contacto, más salud</h1>
+
+            <p>
+                Automatizamos el manejo de residuos con tecnología de sensores,
+                ofreciendo comodidad, higiene y eficiencia en cada uso.
+            </p>
+
+        </div>
+
+        <div class="hero-imagen">
+            <img src="img/imagen inicio s.png" alt="Caneca inteligente" onclick="abrir(this)">
+        </div>
+
+    </section>
+
+    <!-- MODAL (NO SE MODIFICA FUNCIONALIDAD) -->
+    <div id="modal" class="modal" onclick="cerrar()">
+        <img id="imgGrande">
+    </div>
+
+    <script>
+        function abrir(img){
+            document.getElementById("modal").style.display = "flex";
+            document.getElementById("imgGrande").src = img.src;
+        }
+
+        function cerrar(){
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
