@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART TRASH</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="img/logo s.png" alt="Logo SMART TRASH">
+        </div>
+
+        <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="proyecto.html">Proyecto</a></li>
+            <li><a href="funcionamiento.html" class="activo">Funcionamiento</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="contactos.html">Contactos</a></li>
+        </ul>
+
+    </nav>
+
+    <section class="bienvenida">
+
+        <h2>Funcionamiento de SMART TRASH</h2>
+
+        <div class="contenido-bienvenida">
+
+            <p>
+                SMART TRASH es una caneca inteligente diseñada para mejorar la higiene y facilitar el manejo de residuos mediante la automatización de la apertura de su tapa.
+            </p>
+
+            <p>
+                El sistema inicia su funcionamiento cuando el sensor ultrasónico HC-SR04 detecta la presencia de una persona frente a la caneca.
+            </p>
+
+            <p>
+                La información captada por el sensor es enviada al Arduino UNO, que actúa como el cerebro del sistema y procesa los datos recibidos.
+            </p>
+
+            <p>
+                Cuando la distancia detectada cumple con los parámetros programados, el Arduino envía una señal al servomotor para abrir automáticamente la tapa.
+            </p>
+
+            <p>
+                Una vez el usuario deposita los residuos, el sistema espera unos segundos y posteriormente cierra la tapa de forma automática.
+            </p>
+
+            <p>
+                Este proceso evita el contacto directo con la caneca, ayudando a mejorar la higiene y reduciendo la propagación de bacterias y contaminantes.
+            </p>
+
+            <p>
+                Como mejora futura, SMART TRASH incorporará una tapa posterior controlada mediante una aplicación móvil y un sistema que facilitará el vaciado de los residuos almacenados.
+            </p>
+
+            <p>
+                <strong class="slogan">Tecnología inteligente para una disposición de residuos más limpia y eficiente.</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="hero">
+
+        <div class="hero-texto">
+
+            <h1>¿Cómo funciona SMART TRASH?</h1>
+
+            <p>
+                Detecta, procesa, abre automáticamente y vuelve a cerrarse, ofreciendo una experiencia más cómoda, segura e higiénica para el usuario.
+            </p>
+
+        </div>
+
+        <div class="hero-imagen">
+            <img src="img/esquema caneca.png" alt="Funcionamiento SMART TRASH" onclick="abrir(this)">
+        </div>
+
+    </section>
+
+<div id="modal" class="modal">
+
+    <span class="cerrar" onclick="cerrar()">✖</span>
+
+    <img id="imgGrande" onclick="event.stopPropagation()">
+
+</div>
+
+<script>
+    function abrir(img){
+        document.getElementById("modal").style.display = "flex";
+        document.getElementById("imgGrande").src = img.src;
+    }
+
+    function cerrar(){
+        document.getElementById("modal").style.display = "none";
+    }
+
+    document.getElementById("modal").addEventListener("click", function(e){
+        if(e.target === this){
+            cerrar();
+        }
+    });
+</script>
+</body>
+</html> 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios | Smart Bin System</title>
+    <title>SMART TRASH</title>
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
@@ -18,8 +18,9 @@
         <ul class="menu">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="proyecto.html">Proyecto</a></li>
+            <li><a href="funcionamiento.html">funcionamiento</a></li>
             <li><a href="servicios.html" class="activo">Servicios</a></li>
-            <li><a href="contactos.html">Proyectos</a></li>
+            <li><a href="contactos.html">contactos</a></li>
         </ul>
 
     </nav>
@@ -71,10 +72,14 @@
     <!-- MODAL -->
 <div id="modal" class="modal" onclick="cerrarModal()">
 
+    <span class="cerrar-servicio" onclick="cerrarModal()">✖</span>
+
     <div class="servicio-card modal-card" onclick="event.stopPropagation()">
         <h2 id="modalTitulo"></h2>
         <p id="modalTexto"></p>
     </div>
+
+</div>
 
 </div>
 
