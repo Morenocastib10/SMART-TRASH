@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="SMART TRASH es una caneca inteligente con tapa automática y bandeja lateral extraíble para facilitar el manejo de residuos y mejorar la higiene.">
+
     <title>SMART TRASH</title>
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
 
+    <!-- BARRA DE NAVEGACIÓN -->
     <nav class="navbar">
 
         <div class="logo">
@@ -17,13 +21,14 @@
         <ul class="menu">
             <li><a href="index.html" class="activo">Inicio</a></li>
             <li><a href="proyecto.html">Proyecto</a></li>
-            <li><a href="funcionamiento.html">funcionamiento</a></li>
+            <li><a href="funcionamiento.html">Funcionamiento</a></li>
             <li><a href="servicios.html">Servicios</a></li>
             <li><a href="contactos.html">Contactos</a></li>
         </ul>
 
     </nav>
 
+    <!-- BIENVENIDA -->
     <section class="bienvenida">
 
         <h2>Bienvenido a SMART TRASH</h2>
@@ -31,47 +36,102 @@
         <div class="contenido-bienvenida">
 
             <p>
-                SMART TARSH es una propuesta de empresa enfocada en el desarrollo de soluciones tecnológicas
-                para la gestión inteligente de residuos, con el objetivo de automatizar y mejorar la forma en que
-                las personas interactúan con la basura en su vida diaria.
+                SMART TRASH es una propuesta de empresa enfocada en el
+                desarrollo de soluciones tecnológicas para mejorar la
+                higiene y la comodidad en el manejo de residuos. Nuestro
+                proyecto consiste en una caneca inteligente que combina
+                una tapa automática con una bandeja lateral extraíble,
+                facilitando el uso y el mantenimiento del recipiente.
             </p>
 
             <p>
-                Nuestro producto principal es una caneca de basura inteligente que funciona mediante sensores de
-                proximidad, permitiendo la apertura automática de la tapa sin contacto físico. Esto mejora la
-                higiene, reduce la contaminación cruzada y facilita el uso en hogares, colegios y espacios públicos.
+                El sistema de la tapa utiliza una placa ESP32 DevKit,
+                un sensor ultrasónico HC-SR04 y un servomotor MG90S.
+                Estos componentes trabajan en conjunto para detectar
+                la presencia de una persona y controlar automáticamente
+                el movimiento de la tapa, reduciendo la necesidad de
+                tocarla directamente.
             </p>
 
             <p>
-                El sistema está basado en un Arduino UNO, un sensor ultrasónico HC-SR04 y un servomotor, los cuales
-                trabajan en conjunto para detectar la presencia de una persona y accionar la apertura automática
-                de la tapa en tiempo real.
+                Cuando una persona se acerca a 30 centímetros o menos,
+                la tapa se abre lentamente hasta alcanzar los 90 grados
+                y permanece abierta mientras la persona siga siendo
+                detectada. Cuando la persona se aleja y deja de ser
+                detectada, el sistema espera 2 segundos. Si no hay una
+                nueva detección durante ese tiempo, la tapa se cierra
+                lentamente hasta regresar a su posición de 0 grados.
             </p>
 
             <p>
-                Como mejora futura, el sistema puede incluir una aplicación móvil para control remoto, monitoreo
-                del estado del contenedor y un sistema de apertura adicional para facilitar el vaciado del mismo.
+                SMART TRASH también cuenta con una bandeja lateral
+                extraíble que funciona mediante un motor eléctrico
+                controlado por un módulo L298N. La bandeja se desplaza
+                sobre rieles deslizantes reciclados de una impresora
+                láser, permitiendo acceder con mayor facilidad a la
+                bolsa de residuos.
             </p>
 
             <p>
-                La maqueta utilizada tiene como propósito demostrar el funcionamiento del sistema en un entorno
-                controlado, mientras que el producto real está diseñado para ser implementado en diferentes tipos
-                de entornos como hogares, instituciones educativas y espacios comerciales.
+                El movimiento de la bandeja se controla mediante
+                un interruptor conectado al sistema electrónico.
+                Al accionar el interruptor para extraerla, el motor
+                gira hacia la derecha durante 0,4 segundos. Al
+                apagarlo o accionarlo nuevamente para guardarla,
+                el motor gira hacia la izquierda durante 0,4 segundos.
+                De esta manera, se facilita el acceso al interior
+                de la caneca.
             </p>
 
             <p>
-                En SMART TRASH buscamos promover la innovación en el manejo de residuos, aportando a la
-                sostenibilidad y mejorando la experiencia del usuario mediante tecnología accesible.
+                La bandeja permite amarrar y retirar la bolsa usada,
+                colocar una nueva y volver a introducirla en la caneca.
+                Este mecanismo busca hacer más práctico el cambio
+                de la bolsa y mejorar la bioseguridad al reducir
+                la manipulación directa del recipiente y sus residuos.
             </p>
 
             <p>
-                <strong class="slogan">SMART TRASH: Menos contacto, más salud.</strong>
+                Para alimentar el sistema, el ESP32 utiliza una batería
+                recargable de 5 V, el servomotor MG90S cuenta con una
+                fuente externa de aproximadamente 5 V y el motor de
+                la bandeja funciona con una fuente externa de 12 V
+                mediante el controlador L298N. Las tierras se conectan
+                en común cuando es necesario para el funcionamiento
+                correcto del circuito. Además, la señal ECHO del sensor
+                ultrasónico utiliza un divisor de voltaje para adaptar
+                su nivel eléctrico a la entrada del ESP32.
+            </p>
+
+            <p>
+                La maqueta tiene unas dimensiones aproximadas de
+                64 cm de alto, 44 cm de ancho y 30 cm de largo.
+                Está fabricada principalmente en plástico PVC y
+                permite demostrar la integración de los sistemas
+                electrónicos y mecánicos en una solución práctica
+                para el manejo de residuos.
+            </p>
+
+            <p>
+                SMART TRASH busca promover la innovación, la higiene
+                y la comodidad mediante una caneca inteligente que
+                combina automatización, reutilización de materiales
+                y facilidad de uso. Su propuesta está orientada a
+                espacios como hogares, colegios, oficinas y otros
+                lugares donde se necesite mejorar el manejo de residuos.
+            </p>
+
+            <p>
+                <strong class="slogan">
+                    SMART TRASH: Menos contacto, más salud.
+                </strong>
             </p>
 
         </div>
 
     </section>
 
+    <!-- SECCIÓN PRINCIPAL -->
     <section class="hero">
 
         <div class="hero-texto">
@@ -79,32 +139,57 @@
             <h1>Menos contacto, más salud</h1>
 
             <p>
-                Automatizamos el manejo de residuos con tecnología de sensores,
-                ofreciendo comodidad, higiene y eficiencia en cada uso.
+                Una caneca inteligente que combina una tapa
+                automatizada mediante sensores con una bandeja
+                lateral extraíble accionada por un interruptor.
+                Tecnología práctica para facilitar el manejo de
+                residuos y mejorar la higiene.
             </p>
 
         </div>
 
         <div class="hero-imagen">
-            <img src="img/imagen inicio s.png" alt="Caneca inteligente" onclick="abrir(this)">
+            <img
+                src="img/imagen inicio s.png"
+                alt="Prototipo de la caneca inteligente SMART TRASH"
+                onclick="abrir(this)"
+            >
         </div>
 
     </section>
 
-    <!-- MODAL (NO SE MODIFICA FUNCIONALIDAD) -->
-    <div id="modal" class="modal" onclick="cerrar()">
-        <img id="imgGrande">
+    <!-- VISOR DE IMAGEN -->
+    <div
+        id="modal"
+        class="modal"
+        onclick="cerrar()"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Imagen ampliada de SMART TRASH"
+    >
+        <img
+            id="imgGrande"
+            alt="Vista ampliada del prototipo SMART TRASH"
+        >
     </div>
 
+    <!-- FUNCIONES DE LA IMAGEN -->
     <script>
-        function abrir(img){
+        function abrir(img) {
             document.getElementById("modal").style.display = "flex";
             document.getElementById("imgGrande").src = img.src;
+            document.getElementById("imgGrande").alt = img.alt;
         }
 
-        function cerrar(){
+        function cerrar() {
             document.getElementById("modal").style.display = "none";
         }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                cerrar();
+            }
+        });
     </script>
 
 </body>
