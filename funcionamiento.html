@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMART TRASH</title>
+
+    <meta name="description" content="Conoce cómo funciona SMART TRASH, su tapa automática mediante sensores y su bandeja lateral extraíble controlada por interruptor.">
+
+    <title>Funcionamiento | SMART TRASH</title>
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
 
+    <!-- BARRA DE NAVEGACIÓN -->
     <nav class="navbar">
 
         <div class="logo">
@@ -24,6 +28,7 @@
 
     </nav>
 
+    <!-- FUNCIONAMIENTO DEL PROYECTO -->
     <section class="bienvenida">
 
         <h2>Funcionamiento de SMART TRASH</h2>
@@ -31,41 +36,97 @@
         <div class="contenido-bienvenida">
 
             <p>
-                SMART TRASH es una caneca inteligente diseñada para mejorar la higiene y facilitar el manejo de residuos mediante la automatización de la apertura de su tapa.
+                SMART TRASH es una caneca inteligente diseñada para
+                mejorar la higiene y facilitar el manejo de residuos.
+                Su funcionamiento combina un sistema automático para
+                controlar la tapa y un mecanismo de bandeja lateral
+                extraíble que facilita el cambio de la bolsa.
             </p>
 
             <p>
-                El sistema inicia su funcionamiento cuando el sensor ultrasónico HC-SR04 detecta la presencia de una persona frente a la caneca.
+                <strong>1. Detección de la persona:</strong>
+                el sensor ultrasónico HC-SR04 mide la distancia frente
+                a la caneca y envía la información al ESP32 DevKit,
+                que procesa los datos y controla el funcionamiento
+                del sistema.
             </p>
 
             <p>
-                La información captada por el sensor es enviada al Arduino UNO, que actúa como el cerebro del sistema y procesa los datos recibidos.
+                <strong>2. Apertura de la tapa:</strong>
+                cuando el sensor detecta a una persona a 30 centímetros
+                o menos, el ESP32 controla el servomotor MG90S para
+                abrir lentamente la tapa hasta los 90 grados.
+                La tapa permanece abierta mientras la persona
+                continúe siendo detectada.
             </p>
 
             <p>
-                Cuando la distancia detectada cumple con los parámetros programados, el Arduino envía una señal al servomotor para abrir automáticamente la tapa.
+                <strong>3. Cierre automático:</strong>
+                cuando la persona se aleja y deja de ser detectada
+                dentro del rango establecido, comienza una espera
+                de 2 segundos. Si durante ese tiempo no se produce
+                una nueva detección, el servomotor cierra lentamente
+                la tapa hasta regresar a los 0 grados.
             </p>
 
             <p>
-                Una vez el usuario deposita los residuos, el sistema espera unos segundos y posteriormente cierra la tapa de forma automática.
+                <strong>4. Extracción de la bandeja:</strong>
+                la bandeja lateral se desplaza mediante rieles
+                deslizantes reciclados de una impresora láser.
+                Para extraerla, se acciona el interruptor que
+                controla el sistema del ESP32, el módulo L298N
+                y el motor eléctrico. El motor gira hacia la derecha
+                durante 0,4 segundos.
             </p>
 
             <p>
-                Este proceso evita el contacto directo con la caneca, ayudando a mejorar la higiene y reduciendo la propagación de bacterias y contaminantes.
+                <strong>5. Cambio de la bolsa:</strong>
+                con la bandeja extraída, el usuario puede amarrar
+                y retirar la bolsa usada, y después colocar una
+                nueva. Esto facilita el acceso al recipiente y
+                ayuda a reducir la manipulación directa de los residuos.
             </p>
 
             <p>
-                Como mejora futura, SMART TRASH incorporará una tapa posterior controlada mediante una aplicación móvil y un sistema que facilitará el vaciado de los residuos almacenados.
+                <strong>6. Regreso de la bandeja:</strong>
+                al apagar o accionar nuevamente el interruptor
+                para guardarla, el motor gira hacia la izquierda
+                durante 0,4 segundos, haciendo que la bandeja
+                vuelva hacia el interior de la caneca.
             </p>
 
             <p>
-                <strong class="slogan">Tecnología inteligente para una disposición de residuos más limpia y eficiente.</strong>
+                <strong>Alimentación eléctrica:</strong>
+                el ESP32 utiliza una batería recargable de 5 V.
+                El servomotor MG90S funciona con una fuente externa
+                de aproximadamente 5 V, mientras que el motor de
+                la bandeja utiliza una fuente externa de 12 V
+                mediante el módulo L298N. Las tierras se conectan
+                en común cuando es necesario. El sensor HC-SR04
+                también utiliza un divisor de voltaje en su señal
+                ECHO para adaptar el nivel eléctrico al ESP32.
+            </p>
+
+            <p>
+                La combinación de estos mecanismos permite que
+                SMART TRASH automatice el movimiento de la tapa
+                y facilite el cambio de la bolsa mediante una
+                bandeja extraíble. Así, el proyecto busca ofrecer
+                una experiencia más práctica e higiénica para
+                el manejo cotidiano de residuos.
+            </p>
+
+            <p>
+                <strong class="slogan">
+                    SMART TRASH: Menos contacto, más salud.
+                </strong>
             </p>
 
         </div>
 
     </section>
 
+    <!-- EXPLICACIÓN VISUAL -->
     <section class="hero">
 
         <div class="hero-texto">
@@ -73,40 +134,68 @@
             <h1>¿Cómo funciona SMART TRASH?</h1>
 
             <p>
-                Detecta, procesa, abre automáticamente y vuelve a cerrarse, ofreciendo una experiencia más cómoda, segura e higiénica para el usuario.
+                El sensor detecta a la persona, el ESP32 procesa
+                la información y el servomotor controla la tapa.
+                Por otra parte, el interruptor permite accionar
+                el motor de la bandeja lateral para facilitar
+                el acceso a la bolsa de residuos.
             </p>
 
         </div>
 
         <div class="hero-imagen">
-            <img src="img/esquema caneca.png" alt="Funcionamiento SMART TRASH" onclick="abrir(this)">
+            <img
+                src="img/esquema caneca.png"
+                alt="Esquema del funcionamiento de SMART TRASH"
+                onclick="abrir(this)"
+            >
         </div>
 
     </section>
 
-<div id="modal" class="modal">
+    <!-- VISOR DE IMAGEN -->
+    <div
+        id="modal"
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Esquema ampliado de SMART TRASH"
+        onclick="cerrar()"
+    >
 
-    <span class="cerrar" onclick="cerrar()">✖</span>
+        <button
+            type="button"
+            class="cerrar"
+            onclick="cerrar()"
+            aria-label="Cerrar imagen"
+        >✖</button>
 
-    <img id="imgGrande" onclick="event.stopPropagation()">
+        <img
+            id="imgGrande"
+            alt="Esquema ampliado del funcionamiento de SMART TRASH"
+            onclick="event.stopPropagation()"
+        >
 
-</div>
+    </div>
 
-<script>
-    function abrir(img){
-        document.getElementById("modal").style.display = "flex";
-        document.getElementById("imgGrande").src = img.src;
-    }
-
-    function cerrar(){
-        document.getElementById("modal").style.display = "none";
-    }
-
-    document.getElementById("modal").addEventListener("click", function(e){
-        if(e.target === this){
-            cerrar();
+    <!-- FUNCIONES DEL VISOR -->
+    <script>
+        function abrir(img) {
+            document.getElementById("modal").style.display = "flex";
+            document.getElementById("imgGrande").src = img.src;
+            document.getElementById("imgGrande").alt = img.alt;
         }
-    });
-</script>
+
+        function cerrar() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                cerrar();
+            }
+        });
+    </script>
+
 </body>
-</html> 
+</html>
