@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Conoce SMART TRASH, una caneca inteligente con tapa automática y bandeja lateral extraíble para facilitar el manejo de residuos.">
+
+    <title>Proyecto | SMART TRASH</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="img/logo s.png" alt="Logo SMART TRASH">
+        </div>
+
+        <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="proyecto.html" class="activo">Proyecto</a></li>
+            <li><a href="funcionamiento.html">Funcionamiento</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="contactos.html">Contactos</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- INFORMACIÓN DEL PROYECTO -->
+    <section class="bienvenida">
+
+        <h2>Nuestro Proyecto</h2>
+
+        <div class="contenido-bienvenida">
+
+            <p>
+                SMART TRASH es un proyecto tecnológico enfocado en
+                mejorar la higiene y la comodidad durante el manejo
+                de residuos. Consiste en una caneca inteligente que
+                integra una tapa automática y una bandeja lateral
+                extraíble, facilitando tanto el uso del recipiente
+                como el proceso de cambio de la bolsa.
+            </p>
+
+            <p>
+                El sistema de la tapa funciona mediante una placa
+                ESP32 DevKit, un sensor ultrasónico HC-SR04 y un
+                servomotor MG90S. El sensor mide la distancia de
+                una persona y envía la información al ESP32, que
+                controla el movimiento de la tapa de acuerdo con
+                la programación establecida.
+            </p>
+
+            <p>
+                Cuando una persona se encuentra a 30 centímetros
+                o menos, la tapa se abre lentamente hasta los 90°
+                y permanece abierta mientras la persona siga siendo
+                detectada. Cuando deja de detectarla, el sistema
+                espera 2 segundos y, si no hay una nueva detección,
+                cierra lentamente la tapa hasta los 0°.
+            </p>
+
+            <p>
+                Otra parte fundamental del proyecto es la bandeja
+                lateral extraíble. Este mecanismo utiliza rieles
+                deslizantes reciclados de una impresora láser y
+                un motor eléctrico controlado mediante un módulo
+                L298N. Su movimiento permite sacar la bandeja para
+                acceder a la bolsa de residuos y volver a introducirla
+                después de realizar el cambio.
+            </p>
+
+            <p>
+                La bandeja se controla mediante un interruptor.
+                Al accionarlo para extraerla, el motor gira hacia
+                la derecha durante 0,4 segundos. Al apagar o accionar
+                nuevamente el interruptor para guardarla, el motor
+                gira hacia la izquierda durante 0,4 segundos.
+                Este mecanismo facilita el acceso al interior
+                de la caneca sin tener que levantar o desmontar
+                toda su estructura.
+            </p>
+
+            <p>
+                El sistema utiliza diferentes fuentes de alimentación:
+                una batería recargable de 5 V para el ESP32, una
+                fuente externa de aproximadamente 5 V para el
+                servomotor y una fuente externa de 12 V para el
+                motor de la bandeja mediante el módulo L298N.
+                Las tierras se conectan en común cuando corresponde
+                para permitir el funcionamiento conjunto de los
+                componentes. La señal ECHO del sensor ultrasónico
+                cuenta con un divisor de voltaje para adaptar
+                su nivel eléctrico al ESP32.
+            </p>
+
+            <p>
+                La maqueta tiene aproximadamente 64 cm de alto,
+                44 cm de ancho y 30 cm de largo, y está fabricada
+                principalmente en plástico PVC. Su construcción
+                permite integrar los componentes electrónicos
+                y mecánicos en un solo prototipo funcional.
+            </p>
+
+            <p>
+                La bandeja extraíble contribuye a que el cambio
+                de la bolsa sea más práctico, ya que permite
+                amarrar y retirar la bolsa usada, colocar una nueva
+                y regresar la bandeja a su posición. Con esto,
+                SMART TRASH busca reducir la manipulación directa
+                de los residuos y favorecer mejores condiciones
+                de higiene y bioseguridad.
+            </p>
+
+            <p>
+                El proyecto está pensado como una solución que
+                puede resultar útil en hogares, colegios, oficinas
+                y otros espacios donde se busque mejorar la forma
+                de manejar los residuos. Su propuesta combina
+                automatización, aprovechamiento de materiales
+                reutilizados y facilidad de uso.
+            </p>
+
+            <p>
+                <strong class="slogan">
+                    SMART TRASH: Menos contacto, más salud.
+                </strong>
+            </p>
+
+        </div>
+
+        <!-- GALERÍA DE IMÁGENES -->
+        <div class="galeria">
+
+            <div class="fila">
+
+                <img
+                    src="img/proyecto 1 s.jpeg"
+                    alt="Vista del prototipo SMART TRASH"
+                    onclick="abrir(this)"
+                >
+
+                <img
+                    src="img/proyecto 2 s.jpeg"
+                    alt="Detalle de la estructura de SMART TRASH"
+                    onclick="abrir(this)"
+                >
+
+                <img
+                    src="img/proyecto 3 s.jpeg"
+                    alt="Vista adicional de la caneca inteligente"
+                    onclick="abrir(this)"
+                >
+
+            </div>
+
+            <div class="fila">
+
+                <img
+                    src="img/proyecto 4 s.jpeg"
+                    alt="Detalle del prototipo de la caneca"
+                    onclick="abrir(this)"
+                >
+
+                <img
+                    src="img/proyecto 5 s.jpeg"
+                    alt="Otra vista del proyecto SMART TRASH"
+                    onclick="abrir(this)"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- VISOR DE IMÁGENES -->
+    <div
+        id="modal"
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Galería de imágenes SMART TRASH"
+    >
+
+        <button
+            type="button"
+            class="cerrar"
+            onclick="cerrar()"
+            aria-label="Cerrar galería"
+        >✖</button>
+
+        <button
+            type="button"
+            class="flecha izquierda"
+            onclick="anterior()"
+            aria-label="Imagen anterior"
+        >&#10094;</button>
+
+        <img
+            id="imgGrande"
+            alt="Imagen ampliada del prototipo SMART TRASH"
+        >
+
+        <button
+            type="button"
+            class="flecha derecha"
+            onclick="siguiente()"
+            aria-label="Imagen siguiente"
+        >&#10095;</button>
+
+    </div>
+
+    <!-- FUNCIONES DE LA GALERÍA -->
+    <script>
+        const imagenes = Array.from(
+            document.querySelectorAll(".fila img")
+        );
+
+        let indiceActual = 0;
+
+        const modal = document.getElementById("modal");
+        const imgGrande = document.getElementById("imgGrande");
+
+        function mostrarImagen(indice) {
+            indiceActual =
+                (indice + imagenes.length) % imagenes.length;
+
+            imgGrande.src = imagenes[indiceActual].src;
+            imgGrande.alt = imagenes[indiceActual].alt;
+        }
+
+        function abrir(img) {
+            indiceActual = imagenes.indexOf(img);
+            mostrarImagen(indiceActual);
+            modal.style.display = "flex";
+        }
+
+        function cerrar() {
+            modal.style.display = "none";
+        }
+
+        function anterior() {
+            mostrarImagen(indiceActual - 1);
+        }
+
+        function siguiente() {
+            mostrarImagen(indiceActual + 1);
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (modal.style.display !== "flex") {
+                return;
+            }
+
+            if (event.key === "Escape") {
+                cerrar();
+            } else if (event.key === "ArrowLeft") {
+                anterior();
+            } else if (event.key === "ArrowRight") {
+                siguiente();
+            }
+        });
+
+        modal.addEventListener("click", function(event) {
+            if (event.target === modal) {
+                cerrar();
+            }
+        });
+    </script>
+
+</body>
+</html>
